@@ -26,8 +26,8 @@ type Spec struct {
 
 type Config map[string]BlobAttributes
 
-func Blobs(blobs_yml_file_path string) ([]Blob, error) {
-	var blobs []Blob
+func Blobs(blobs_yml_file_path string) ([]string, error) {
+	var blobs []string
 	var config Config
 
 	bytes, err := ioutil.ReadFile(blobs_yml_file_path)
@@ -39,9 +39,8 @@ func Blobs(blobs_yml_file_path string) ([]Blob, error) {
 		return nil, err
 	}
 
-	for name, attributes := range config {
-		blob := Blob{Name: name, Attributes: &attributes}
-		blobs = append(blobs, blob)
+	for name, _ := range config {
+		blobs = append(blobs, name)
 	}
 
 	return blobs, nil

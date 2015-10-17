@@ -18,11 +18,18 @@ var _ = Describe("Tidyblob", func() {
 	)
 
 	Describe("Blobs", func() {
-		It("returns a []Blob of all blobs in the provided blobs.yml file", func() {
+		It("returns a []string of all blob names in the provided blobs.yml file", func() {
 			blobs, err := Blobs(blobs_yml_file_path)
 
 			Expect(err).ToNot(HaveOccurred())
 			Expect(len(blobs)).To(Equal(5))
+			Expect(blobs).To(ConsistOf(
+				"cf-cli/cf-linux-amd64.tgz",
+				"docker/docker-1.6.2",
+				"golang/go1.4.3.linux-amd64.tar.gz",
+				"lifecycles/windows_app_lifecycle-95ad2f6.tgz",
+				"rootfs/cflinuxfs2-1.11.0.tar.gz",
+			))
 		})
 
 		Context("when the blobs.yml file doesn't exist", func() {
