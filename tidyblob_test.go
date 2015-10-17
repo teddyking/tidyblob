@@ -12,6 +12,9 @@ var _ = Describe("Tidyblob", func() {
 		blobs_yml_file_path             = "assets/blobs.yml"
 		invalid_blobs_yml_file_path     = "assets/blobs.txt"
 		nonexistent_blobs_yml_file_path = "assets/nope.yml"
+		bosh_packages_dir_path          = "assets/packages"
+		invalid_bosh_packages_dir_path  = "assets/invalid_packages"
+		empty_bosh_packages_dir_path    = "assets"
 	)
 
 	Describe("Blobs", func() {
@@ -34,6 +37,38 @@ var _ = Describe("Tidyblob", func() {
 		Context("when the blobs.yml file contains invalid YAML", func() {
 			It("returns an error", func() {
 				blobs, err := Blobs(invalid_blobs_yml_file_path)
+
+				Expect(err).To(HaveOccurred())
+				Expect(blobs).To(BeNil())
+			})
+		})
+	})
+
+	Describe("RequiredBlobs", func() {
+		It("returns a []string of blob names that are required for BOSH packages in the provided packages dir", func() {
+			blobs, err := RequiredBlobs(bosh_packages_dir_path)
+
+			Expect(err).ToNot(HaveOccurred())
+			Expect(len(blobs)).To(Equal(3))
+			Expect(blobs).To(ConsistOf(
+				"cf-cli/cf-linux-amd64.tgz",
+				"docker/docker-1.6.2",
+				"golang/go1.4.3.linux-amd64.tar.gz",
+			))
+		})
+
+		Context("when no <package>/spec files exist under the provided packages dir", func() {
+			It("returns an empty []string", func() {
+				blobs, err := RequiredBlobs(empty_bosh_packages_dir_path)
+
+				Expect(err).ToNot(HaveOccurred())
+				Expect(len(blobs)).To(Equal(0))
+			})
+		})
+
+		Context("when a matched package's spec file contains invalid YAML", func() {
+			It("returns an error", func() {
+				blobs, err := RequiredBlobs(invalid_bosh_packages_dir_path)
 
 				Expect(err).To(HaveOccurred())
 				Expect(blobs).To(BeNil())
