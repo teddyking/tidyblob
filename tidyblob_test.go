@@ -82,4 +82,17 @@ var _ = Describe("Tidyblob", func() {
 			})
 		})
 	})
+
+	Describe("StaleBlobs", func() {
+		It("returns a []string of blob names that are not required by a BOSH release", func() {
+			blobs, err := StaleBlobs(blobs_yml_file_path, bosh_packages_dir_path)
+
+			Expect(err).ToNot(HaveOccurred())
+			Expect(len(blobs)).To(Equal(2))
+			Expect(blobs).To(ConsistOf(
+				"lifecycles/windows_app_lifecycle-95ad2f6.tgz",
+				"rootfs/cflinuxfs2-1.11.0.tar.gz",
+			))
+		})
+	})
 })

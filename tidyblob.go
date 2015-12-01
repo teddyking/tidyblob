@@ -73,6 +73,28 @@ func RequiredBlobs(bosh_packages_dir_path string) ([]string, error) {
 	return uniq(requiredBlobs), nil
 }
 
+func StaleBlobs(blobs_yml_file_path, bosh_packages_dir_path string) ([]string, error) {
+	var staleBlobs []string
+
+	blobs, err := Blobs(blobs_yml_file_path)
+	if err != nil {
+		return nil, err
+	}
+
+	requiredBlobs, err := RequiredBlobs(bosh_packages_dir_path)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, blob := range blobs {
+		if !containsString(requiredBlobs, blob) {
+			staleBlobs = append(staleBlobs, blob)
+		}
+	}
+
+	return staleBlobs, nil
+}
+
 // This func was essentially copied from a golang-nuts post:
 // https://groups.google.com/d/msg/golang-nuts/-pqkICuokio/KqJ0091EzVcJ
 // It has been renamed from 'removeDuplicates' to 'uniq' and modified to work with strings
@@ -86,4 +108,13 @@ func uniq(a []string) []string {
 		}
 	}
 	return result
+}
+
+func containsString(slice []string, str string) bool {
+	for _, sliceElement := range slice {
+		if sliceElement == str {
+			return true
+		}
+	}
+	return false
 }
