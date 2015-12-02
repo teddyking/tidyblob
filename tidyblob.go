@@ -3,6 +3,7 @@ package tidyblob
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"path/filepath"
 
 	"gopkg.in/yaml.v2"
@@ -93,6 +94,22 @@ func StaleBlobs(blobs_yml_file_path, bosh_packages_dir_path string) ([]string, e
 	}
 
 	return staleBlobs, nil
+}
+
+func IsBoshReleaseDirectory(boshReleasePath string) (bool, error) {
+	requiredDirs := []string{"jobs", "packages", "src"}
+
+	for _, requiredDir := range requiredDirs {
+		_, err := os.Stat(fmt.Sprintf("%s/%s", boshReleasePath, requiredDir))
+		if os.IsNotExist(err) {
+			return false, nil
+		}
+
+		if err != nil {
+			return false, err
+		}
+	}
+	return true, nil
 }
 
 // This func was essentially copied from a golang-nuts post:

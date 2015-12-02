@@ -95,4 +95,39 @@ var _ = Describe("Tidyblob", func() {
 			))
 		})
 	})
+
+	Describe("IsBoshReleaseDirectory", func() {
+		var (
+			bosh_release_dir_path             = "assets/test-boshrelease"
+			non_bosh_release_dir_path         = "assets"
+			nonexistent_bosh_release_dir_path = "assets/nope"
+		)
+
+		Context("when the directory is a BOSH release directory", func() {
+			It("returns true", func() {
+				result, err := IsBoshReleaseDirectory(bosh_release_dir_path)
+				Expect(err).ToNot(HaveOccurred())
+
+				Expect(result).To(BeTrue())
+			})
+		})
+
+		Context("when the directory is not a BOSH release directory", func() {
+			It("returns false", func() {
+				result, err := IsBoshReleaseDirectory(non_bosh_release_dir_path)
+				Expect(err).ToNot(HaveOccurred())
+
+				Expect(result).To(BeFalse())
+			})
+		})
+
+		Context("when the directory doesn't exist", func() {
+			It("returns false", func() {
+				result, err := IsBoshReleaseDirectory(nonexistent_bosh_release_dir_path)
+				Expect(err).ToNot(HaveOccurred())
+
+				Expect(result).To(BeFalse())
+			})
+		})
+	})
 })
