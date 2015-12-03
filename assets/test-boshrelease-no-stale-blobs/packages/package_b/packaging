@@ -1,0 +1,3 @@
+set -e -x
+cp docker/docker-1.6.2 ${BOSH_INSTALL_TARGET}
+cp golang/go1.4.3.linux-amd64.tar.gz ${BOSH_INSTALL_TARGET}

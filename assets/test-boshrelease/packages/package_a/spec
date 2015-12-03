@@ -1,0 +1,4 @@
+---
+name: package_a
+files:
+- cf-cli/cf-linux-amd64.tgz

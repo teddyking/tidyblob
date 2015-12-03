@@ -1,0 +1,13 @@
+---
+cf-cli/cf-linux-amd64.tgz:
+  object_id: 2c47b722-af22-404f-ae7b-ff1196838b5f
+  sha: a0461088045ce7bd78d376e26d7dc7c29324e1ea
+  size: 5075879
+docker/docker-1.6.2:
+  object_id: 707759a5-feed-4bf0-bd19-b5642d47ae14
+  sha: 6f57a882bd26e8b541d9d8b3ff4f9c71c2839d4d
+  size: 15443675
+golang/go1.4.3.linux-amd64.tar.gz:
+  object_id: 57e504a8-c30c-4235-9eb5-42d046f84484
+  sha: 332b64236d30a8805fc8dd8b3a269915b4c507fe
+  size: 61210288

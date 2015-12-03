@@ -8,8 +8,12 @@ import (
 )
 
 func main() {
+	blobsYMLFilePath := fmt.Sprintf("%s/config/blobs.yml", pwd())
+	boshPackagesDirPath := fmt.Sprintf("%s/packages", pwd())
+
 	if isBoshReleaseDirectory() {
-		os.Exit(0)
+		staleBlobs := staleBlobs(blobsYMLFilePath, boshPackagesDirPath)
+		printBlobs(staleBlobs)
 	} else {
 		fmt.Fprintf(os.Stderr, "Sorry, your current directory doesn't look like release directory\n")
 		os.Exit(1)
@@ -32,4 +36,31 @@ func pwd() string {
 		os.Exit(1)
 	}
 	return pwd
+}
+
+func printBlobs(blobs []string) {
+	var output string
+
+	if len(blobs) > 0 {
+		output = fmt.Sprintf("Found stale blobs:\n")
+
+		for _, blob := range blobs {
+			output = fmt.Sprintf("%s\n%s", output, blob)
+		}
+		output = fmt.Sprintf("%s\n", output)
+	} else {
+		output = fmt.Sprintf("Didn't detect any stale blobs\n")
+	}
+
+	fmt.Fprintf(os.Stdout, output)
+}
+
+func staleBlobs(blobsYMLFilePath, boshPackagesDirPath string) []string {
+	staleBlobs, err := tidyblob.StaleBlobs(blobsYMLFilePath, boshPackagesDirPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to get determine stale blobs\n")
+		os.Exit(1)
+	}
+
+	return staleBlobs
 }
