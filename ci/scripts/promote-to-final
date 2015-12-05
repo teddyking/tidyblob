@@ -2,11 +2,19 @@
 
 set -e
 
+echo "***DEBUG***"
+ls -lah
+echo "***END***"
+
 ROOT_TASK_DIR=$(pwd)
 TIDYBLOB_RC_DIR=$ROOT_TASK_DIR/tidyblob-release-candidate
 VERSION=$(cat version/number)
 
 echo "Promoting tidyblob release candidate to final with version: $VERSION"
+
+echo "***DEBUG***"
+ls -lah ./*/*
+echo "***END***"
 
 mv "$TIDYBLOB_RC_DIR/*" "tidyblob-$VERSION.tar.gz"
 
