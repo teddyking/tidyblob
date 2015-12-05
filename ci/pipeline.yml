@@ -6,6 +6,20 @@ jobs:
   - task: unit
     file: tidyblob/ci/unit.yml
 
+- name: build
+  serial_groups: [version]
+  plan:
+    - aggregate:
+      - get: tidyblob
+        passed: [unit]
+        trigger: true
+      - get: version
+        params: {pre: rc}
+    - task: build
+      file: tidyblob/ci/build.yml
+    - put: tidyblob-final
+      params: {from: build/tidyblob.*.tar.gz}
+
 resources:
 - name: tidyblob
   type: git
@@ -18,6 +32,7 @@ resources:
   type: semver
   source:
     bucket: tidyblob-pipeline-artifacts
+    region_name: eu-west-1
     key: current-version
     access_key_id: {{s3-access-key-id}}
     secret_access_key: {{s3-secret-access-key}}
@@ -26,6 +41,7 @@ resources:
   type: s3
   source:
     bucket: tidyblob
+    region_name: eu-west-1
     regexp: tidyblob-(.*).tgz
     access_key_id: {{s3-access-key-id}}
     secret_access_key: {{s3-secret-access-key}}

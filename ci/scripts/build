@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+ROOT_TASK_DIR=$(pwd)
+VERSION=$(cat version/current-version)
+
+echo "Building tidyblob with version: $VERSION"
+
+cd src/github.com/teddyking/tidyblob
+export GOPATH=$GOPATH:$ROOT_TASK_DIR:$(pwd)/Godeps/_workspace
+
+go build -o "tidyblob" cmd/main.go
+tar -cvzf "tidyblob-$VERSION.tar.gz" tidyblob
+mv "tidyblob-$VERSION.tar.gz" $ROOT_TASK_DIR/
+
+echo "Built file: tidyblob-$VERSION.tar.gz"

@@ -1,0 +1,11 @@
+---
+platform: linux
+image: docker:///teddyking/golang-ci
+
+inputs:
+  - name: tidyblob
+    path: src/github.com/teddyking/tidyblob
+  - name: version
+
+run:
+  path: src/github.com/teddyking/tidyblob/ci/scripts/build
