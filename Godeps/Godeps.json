@@ -1,0 +1,20 @@
+{
+	"ImportPath": "github.com/teddyking/tidyblob",
+	"GoVersion": "go1.5",
+	"Deps": [
+		{
+			"ImportPath": "github.com/onsi/ginkgo",
+			"Comment": "v1.2.0-14-g1b59c57",
+			"Rev": "1b59c57df76ede42c08590546916e6a18685857d"
+		},
+		{
+			"ImportPath": "github.com/onsi/gomega",
+			"Comment": "v1.0-55-g6331bf5",
+			"Rev": "6331bf5a5b5e7a832348789eb3cedff7a6917103"
+		},
+		{
+			"ImportPath": "gopkg.in/yaml.v2",
+			"Rev": "53feefa2559fb8dfa8d81baad31be332c97d6c77"
+		}
+	]
+}
