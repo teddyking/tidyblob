@@ -19,6 +19,8 @@ jobs:
       file: tidyblob/ci/build.yml
     - put: tidyblob-final
       params: {from: build/tidyblob.*.tar.gz}
+    - put: version
+      params: {file: version/number}
 
 resources:
 - name: tidyblob
