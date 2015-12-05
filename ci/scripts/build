@@ -3,7 +3,7 @@
 set -e
 
 ROOT_TASK_DIR=$(pwd)
-VERSION=$(cat version/current-version)
+VERSION=$(cat version/number)
 
 echo "Building tidyblob with version: $VERSION"
 
