@@ -1,7 +1,7 @@
 package matchers
 
 import (
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega/format"
+	"github.com/onsi/gomega/format"
 	"reflect"
 )
 

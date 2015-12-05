@@ -2,7 +2,7 @@ package matchers
 
 import (
 	"fmt"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega/format"
+	"github.com/onsi/gomega/format"
 )
 
 type HavePrefixMatcher struct {

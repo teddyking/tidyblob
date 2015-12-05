@@ -6,12 +6,12 @@ import (
 	"os"
 	"time"
 
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/config"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/codelocation"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/reporters"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/types"
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega"
+	. "github.com/onsi/ginkgo"
+	"github.com/onsi/ginkgo/config"
+	"github.com/onsi/ginkgo/internal/codelocation"
+	"github.com/onsi/ginkgo/reporters"
+	"github.com/onsi/ginkgo/types"
+	. "github.com/onsi/gomega"
 )
 
 var _ = Describe("JUnit Reporter", func() {

@@ -3,7 +3,7 @@ package table
 import (
 	"reflect"
 
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo"
+	"github.com/onsi/ginkgo"
 )
 
 /*

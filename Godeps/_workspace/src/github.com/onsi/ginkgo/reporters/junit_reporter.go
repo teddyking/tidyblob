@@ -11,8 +11,8 @@ package reporters
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/config"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/types"
+	"github.com/onsi/ginkgo/config"
+	"github.com/onsi/ginkgo/types"
 	"os"
 	"strings"
 )

@@ -3,10 +3,10 @@ package gexec_test
 import (
 	"os/exec"
 	"time"
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega/gexec"
+	. "github.com/onsi/gomega/gexec"
 
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo"
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega"
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
 )
 
 type NeverExits struct{}

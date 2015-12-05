@@ -1,7 +1,7 @@
 package testingtsupport_test
 
 import (
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega"
+	. "github.com/onsi/gomega"
 
 	"testing"
 )

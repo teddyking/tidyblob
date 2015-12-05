@@ -1,7 +1,7 @@
 package leafnodes
 
 import (
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/types"
+	"github.com/onsi/ginkgo/types"
 )
 
 type BasicNode interface {

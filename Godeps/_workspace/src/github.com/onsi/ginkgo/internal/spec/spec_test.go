@@ -3,17 +3,17 @@ package spec_test
 import (
 	"time"
 
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo"
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega/gbytes"
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	"github.com/onsi/gomega/gbytes"
 
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/spec"
+	. "github.com/onsi/ginkgo/internal/spec"
 
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/codelocation"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/containernode"
-	Failer "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/failer"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/leafnodes"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/types"
+	"github.com/onsi/ginkgo/internal/codelocation"
+	"github.com/onsi/ginkgo/internal/containernode"
+	Failer "github.com/onsi/ginkgo/internal/failer"
+	"github.com/onsi/ginkgo/internal/leafnodes"
+	"github.com/onsi/ginkgo/types"
 )
 
 var noneFlag = types.FlagTypeNone

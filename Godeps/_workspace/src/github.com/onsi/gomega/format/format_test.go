@@ -3,10 +3,10 @@ package format_test
 import (
 	"fmt"
 	"strings"
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo"
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega"
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega/format"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega/types"
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	. "github.com/onsi/gomega/format"
+	"github.com/onsi/gomega/types"
 )
 
 //recursive struct

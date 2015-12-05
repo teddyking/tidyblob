@@ -3,9 +3,9 @@ package matchers_test
 import (
 	"errors"
 
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo"
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega"
-	. "github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/gomega/matchers"
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+	. "github.com/onsi/gomega/matchers"
 )
 
 func Erroring() error {

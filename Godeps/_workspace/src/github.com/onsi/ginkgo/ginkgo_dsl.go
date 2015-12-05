@@ -20,16 +20,16 @@ import (
 	"strings"
 	"time"
 
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/config"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/codelocation"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/failer"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/remote"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/suite"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/testingtproxy"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/internal/writer"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/reporters"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/reporters/stenographer"
-	"github.com/teddyking/tidyblob/Godeps/_workspace/src/github.com/onsi/ginkgo/types"
+	"github.com/onsi/ginkgo/config"
+	"github.com/onsi/ginkgo/internal/codelocation"
+	"github.com/onsi/ginkgo/internal/failer"
+	"github.com/onsi/ginkgo/internal/remote"
+	"github.com/onsi/ginkgo/internal/suite"
+	"github.com/onsi/ginkgo/internal/testingtproxy"
+	"github.com/onsi/ginkgo/internal/writer"
+	"github.com/onsi/ginkgo/reporters"
+	"github.com/onsi/ginkgo/reporters/stenographer"
+	"github.com/onsi/ginkgo/types"
 )
 
 const GINKGO_VERSION = config.VERSION
