@@ -61,7 +61,7 @@ resources:
   source:
     bucket: tidyblob-pipeline-artifacts
     region_name: eu-west-1
-    regexp: tidyblob-(.*).tgz
+    regexp: tidyblob-(.*).tar.gz
     access_key_id: {{s3-access-key-id}}
     secret_access_key: {{s3-secret-access-key}}
 
@@ -70,6 +70,6 @@ resources:
   source:
     bucket: tidyblob
     region_name: eu-west-1
-    regexp: tidyblob-(.*).tgz
+    regexp: tidyblob-(.*).tar.gz
     access_key_id: {{s3-access-key-id}}
     secret_access_key: {{s3-secret-access-key}}
