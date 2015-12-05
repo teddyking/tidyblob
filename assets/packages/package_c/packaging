@@ -1,2 +1,0 @@
-set -e -x
-cp cf-cli/cf-linux-amd64.tgz ${BOSH_INSTALL_TARGET}

@@ -9,10 +9,10 @@ import (
 
 var _ = Describe("Tidyblob", func() {
 	var (
-		blobs_yml_file_path             = "assets/blobs.yml"
+		blobs_yml_file_path             = "assets/test-boshrelease/config/blobs.yml"
 		invalid_blobs_yml_file_path     = "assets/blobs.txt"
 		nonexistent_blobs_yml_file_path = "assets/nope.yml"
-		bosh_packages_dir_path          = "assets/packages"
+		bosh_packages_dir_path          = "assets/test-boshrelease/packages"
 		invalid_bosh_packages_dir_path  = "assets/invalid_packages"
 		empty_bosh_packages_dir_path    = "assets"
 	)
