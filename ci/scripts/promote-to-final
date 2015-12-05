@@ -8,6 +8,6 @@ VERSION=$(cat version/number)
 
 echo "Promoting tidyblob release candidate to final with version: $VERSION"
 
-mv "$TIDYBLOB_RC_DIR"/* "tidyblob-$VERSION.tar.gz"
+mv "$TIDYBLOB_RC_DIR"/tidyblob-*.tar.gz "./tidyblob-$VERSION.tar.gz"
 
 echo "Built file: tidyblob-$VERSION.tar.gz"
