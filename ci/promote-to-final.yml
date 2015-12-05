@@ -1,0 +1,12 @@
+---
+platform: linux
+image: docker:///teddyking/golang-ci
+
+inputs:
+  - name: tidyblob
+    path: src/github.com/teddyking/tidyblob
+  - name: tidyblob-release-candidate
+  - name: version
+
+run:
+  path: src/github.com/teddyking/tidyblob/ci/scripts/promote-to-final

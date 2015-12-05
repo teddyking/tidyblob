@@ -17,10 +17,27 @@ jobs:
         params: {pre: rc}
     - task: build
       file: tidyblob/ci/build.yml
-    - put: tidyblob-final
+    - put: tidyblob-release-candidate
       params: {from: build/tidyblob.*.tar.gz}
     - put: version
       params: {file: version/number}
+
+- name: shipit
+  serial_groups: [version]
+  plan:
+    - aggregate:
+      - get: tidyblob
+        passed: [build]
+      - get: tidyblob-release-candidate
+        passed: [build]
+      - get: version
+        params: {bump: final}
+    - task: promote-to-final
+      file: tidyblob/ci/promote-to-final.yml
+    - put: tidyblob-final
+      params: {from: promote-to-final/tidyblob.*.tar.gz}
+    - put: version
+      params: {from: version/number}
 
 resources:
 - name: tidyblob
@@ -36,6 +53,15 @@ resources:
     bucket: tidyblob-pipeline-artifacts
     region_name: eu-west-1
     key: current-version
+    access_key_id: {{s3-access-key-id}}
+    secret_access_key: {{s3-secret-access-key}}
+
+- name: tidyblob-release-candidate
+  type: s3
+  source:
+    bucket: tidyblob-pipeline-artifacts
+    region_name: eu-west-1
+    regexp: tidyblob-(.*).tgz
     access_key_id: {{s3-access-key-id}}
     secret_access_key: {{s3-secret-access-key}}
 
