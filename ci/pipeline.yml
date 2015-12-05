@@ -1,0 +1,31 @@
+jobs:
+- name: unit
+  plan:
+  - get: tidyblob
+    trigger: true
+  - task: unit
+    file: tidyblob/ci/unit.yml
+
+resources:
+- name: tidyblob
+  type: git
+  source:
+    uri: git@github.com:teddyking/tidyblob.git
+    branch: master
+    private_key: {{github-private-key}}
+
+- name: version
+  type: semver
+  source:
+    bucket: tidyblob-pipeline-artifacts
+    key: current-version
+    access_key_id: {{s3-access-key-id}}
+    secret_access_key: {{s3-secret-access-key}}
+
+- name: tidyblob-final
+  type: s3
+  source:
+    bucket: tidyblob
+    regexp: tidyblob-(.*).tgz
+    access_key_id: {{s3-access-key-id}}
+    secret_access_key: {{s3-secret-access-key}}
