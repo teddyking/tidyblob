@@ -37,7 +37,13 @@ jobs:
     - put: tidyblob-final
       params: {from: promote-to-final/tidyblob.*.tar.gz}
     - put: version
-      params: {from: version/number}
+      params: {file: version/number}
+
+- name: minor
+  serial_groups: [version]
+  plan:
+  - put: version
+    params: {bump: minor, pre: rc}
 
 resources:
 - name: tidyblob
